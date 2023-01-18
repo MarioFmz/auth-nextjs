@@ -5,7 +5,7 @@ import Cookies from 'js-cookie';
 import axios from 'axios';
 
 import { authDemoApi } from '../../api';
-import { AuthContext, AuthReducer } from './';
+import { AuthContext, authReducer } from '.';
 import { IUser } from '../../interfaces';
 
 export interface AuthState {
@@ -24,7 +24,7 @@ interface Props {
 
 export const AuthProvider:FC<Props> = ({ children }) => {
 
-    const [state, dispatch] = useReducer( AuthReducer, AUTH_INITIAL_STATE );
+    const [state, dispatch] = useReducer( authReducer, AUTH_INITIAL_STATE );
     const { data, status } = useSession();
 
     useEffect(() => {
