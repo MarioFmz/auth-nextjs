@@ -4,14 +4,14 @@ import { signIn } from "next-auth/react";
 import { useContext } from "react";
 import { AuthContext } from "../../context/auth";
 
-export default function NavBar() {
+export const Navbar = () => {
   const { user, isLoggedIn, logout } = useContext(AuthContext);
   
   return (
     <div>
-      <nav className="bg-white border-gray-200 dark:bg-gray-900">
+      <nav className="bg-white border-gray-200">
         <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl px-4 md:px-6 py-2.5">
-        <Link href="/" legacyBehavior>
+        <Link href="/admin" legacyBehavior>
             <a className="flex items-center">
               <Image
                 className="mr-3 h-6 sm:h-9"
@@ -50,8 +50,8 @@ export default function NavBar() {
             <span className="flex relative h-10 w-10 rounded-full">
               {isLoggedIn ? (
                 <Image
-                  className=" rounded-full object-cover h-10 w-10 "
-                  src={user?.image}
+                  className="rounded-full object-cover h-10 w-10 "
+                  src={user?.image || "/vercel.svg"}
                   alt=""
                   fill
                   sizes="100vw"

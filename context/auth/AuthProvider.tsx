@@ -93,7 +93,6 @@ export const AuthProvider:FC<Props> = ({ children }) => {
     return (
         <AuthContext.Provider value={{
             ...state,
-            // Methods
             loginUser,
             registerUser,
             logout,

@@ -8,9 +8,7 @@ export const checkUserEmailPassword = async (
   password: string
 ) => {
   await db.connect();
-
   const user = await User.findOne({ email });
-  
   await db.disconnect();
 
   if (!user) {
